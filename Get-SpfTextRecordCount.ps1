@@ -13,7 +13,6 @@ function Get-SPFTxtRecordCount {
 		if($($txt.Strings) -like "v=spf1*") {
 			foreach ($SpfEntry in $($txt.Strings.Split(" ").Trim())) {
 				if($SpfEntry -like "ip4:*") {
-					$EntryCount = 0;
 					if($Loud) {Write-Host "Finding record count for subnet $SpfEntry for $DomainName"}
 
 					if($SpfEntry -like "*/*") {
